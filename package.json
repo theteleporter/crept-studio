@@ -1,19 +1,32 @@
 {
-  "name": "crept-studio",
-  "private": true,
+  "name": "next-forge",
+  "version": "2.11.7",
+  "bin": {
+    "next-forge": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "test": "turbo test",
+    "analyze": "turbo analyze",
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "@auto-it/all-contributors": "^11.3.0",
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@biomejs/biome": "1.9.4",
+    "@repo/typescript-config": "workspace:*",
     "turbo": "^2.2.3",
-    "typescript": "5.5.4"
+    "typescript": "^5.6.3",
+    "ultracite": "^4.1.6"
   },
-  "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "pnpm@9.12.3"
 }
